@@ -1,3 +1,17 @@
+"""
+acquire.py
+
+Data acquisition layer
+
+This file retrieves MBTA LAMP subway data for February 2026, filters the data to one subway line (Orange),
+removes duplicate and missing records, and returns clean data that can be used by other layers
+
+Functions in this file:
+- get_clean_data(route_id)
+- get_trip_totals(df)
+- get_scheduled_trip_totals(df)
+- get_station_names(route_id)
+"""
 import os
 import pandas as pd
 
