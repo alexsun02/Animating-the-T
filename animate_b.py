@@ -29,8 +29,9 @@ def main():
     heatmap_display = np.full_like(heatmap_full, np.nan)
 
     # set consistent color scale from the full dataset
-    vmin = np.nanmin(heatmap_full)
-    vmax = np.nanmax(heatmap_full)
+    # using percentile because the february 8th outliers would otherwise make the graph unreadable
+    vmin = np.nanpercentile(heatmap_full, 2)
+    vmax = np.nanpercentile(heatmap_full, 99.7)
 
     # create figure and initial heatmap
     fig, ax = plt.subplots(figsize=(14, 8))
@@ -70,7 +71,6 @@ def main():
     )
 
     anim.save("mbta_orange_animation_b.mp4", fps=2)
-
     print("Saved mbta_orange_animation_b.mp4")
     plt.show()
 
