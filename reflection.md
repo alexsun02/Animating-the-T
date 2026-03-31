@@ -15,7 +15,7 @@ By February 25, the heatmap columns return to their typical color pattern.
 This all suggests service recovered within about two days.
 
 ## Question 2
-The scheduled_travel_time field is null when LAMP can't match a real-time trip to a planned GTFS schedule/ 
+The scheduled_travel_time field is null when LAMP can't match a real-time trip to a planned GTFS schedule. 
 This happens more on storm days when the MBTA runs non-standard service. In the acquisition layer, 
 these nulls are dropped before summing scheduled segment times per trip. This means the scheduled average on 
 storm days is based on fewer and potentially non-representative trips. The chart reflects data completeness 
