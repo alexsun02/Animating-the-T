@@ -40,7 +40,7 @@ class SubwayLine(BaseModel):
     @computed_field
     @property
     def daily_avg_travel(self) -> dict[str, float]:
-        """Date string → mean actual travel time (seconds) across all trips."""
+        """Date string -> mean actual travel time (seconds) across all trips."""
         agg = (
             self.trip_totals
             .groupby("service_date")["actual_travel_time"]
@@ -51,7 +51,7 @@ class SubwayLine(BaseModel):
     @computed_field
     @property
     def daily_avg_scheduled(self) -> dict[str, float]:
-        """Date string → mean scheduled travel time (seconds) across all trips."""
+        """Date string -> mean scheduled travel time (seconds) across all trips."""
         agg = (
             self.scheduled_trip_totals
             .groupby("service_date")["scheduled_travel_time_total"]
@@ -69,7 +69,7 @@ class SubwayLine(BaseModel):
         This is the 2D array the heatmap animation calls set_array() on.
         """
         # map parent_station IDs to station names using the acquire layer's
-        # ORANGE_STOPS ordering — we need to import the ID list for the merge
+        # ORANGE_STOPS ordering - need to import the ID list for the merge
         from acquire import get_station_ids
 
         station_ids = get_station_ids(self.route_id)
